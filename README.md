@@ -1,5 +1,7 @@
 # last-visit
 
+[![Build Status](https://travis-ci.com/gladielf/last-visit.svg?branch=main)](https://travis-ci.com/gladielf/last-visit)
+[![Coverage Status](https://coveralls.io/repos/github/gladielf/last-visit/badge.svg?branch=master)](https://coveralls.io/github/gladielf/last-visit?branch=master)
 ## Project setup
 ```
 npm install
