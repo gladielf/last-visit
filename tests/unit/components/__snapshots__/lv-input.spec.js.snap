@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LvInput - Snapshot Snapshot 1`] = `
+<div
+  class="lv-input"
+>
+  <input
+    class="lv-input__input"
+    type="text"
+  />
+  <label
+    class="lv-input__error"
+  >
+    
+  </label>
+</div>
+`;
