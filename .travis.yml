@@ -1,0 +1,29 @@
+language: node_js
+os: linux
+node_js:
+  - 12
+dist: trusty
+
+cache:
+  npm: false
+  directories:
+    - node_modules
+
+script:
+  - set -e
+  - npm run lint
+  - npm run test:unit
+  - npm run build
+
+after_script:
+  - cat ./coverage/lcov.info | coveralls
+
+deploy:
+  strategy: git
+  provider: pages
+  skip_cleanup: true
+  keep_history: true
+  local_dir: dist
+  token: $GITHUB_TOKEN
+  on:
+    branch: master
