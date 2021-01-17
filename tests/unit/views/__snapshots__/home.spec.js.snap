@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home - Snapshot Snapshot 1`] = `
+<div
+  class="home"
+>
+  <lv-button-stub
+    class="lv-button--light"
+    text="LOGOUT"
+    type="button"
+  />
+</div>
+`;

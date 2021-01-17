@@ -12,6 +12,7 @@ module.exports = {
     },
     rules: {
         indent: ['error', 4],
+        semi: ['error', 'always'],
         'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
         'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off'
     },
@@ -26,4 +27,4 @@ module.exports = {
             }
         }
     ]
-}
+};
