@@ -1,5 +1,9 @@
 <template lang="pug">
-    button.lv-button(:type="type" @click="btnClicked") {{ text }}
+    button.lv-button(
+        :type="type",
+        @click="btnClicked",
+        :class="{'lv-button--max-width' : maxWidth, 'lv-button--disable' : disableButton}"
+        ) {{ text }}
 </template>
 
 <script>
@@ -10,7 +14,9 @@ export default {
         type: {
             type: String,
             default: 'button'
-        }
+        },
+        maxWidth: Boolean,
+        disableButton: Boolean
     },
     methods: {
         btnClicked () {
@@ -30,8 +36,17 @@ export default {
         min-width: 8em,
         border-radius: 3px
 
+        &--max-width
+            width: 100%
+
         &--dark
             background-color: #20497f
+
         &--light
             background-color: #2e6dde
+
+        &--disable
+            opacity: 0.5,
+            pointer-events: none
+
 </style>
