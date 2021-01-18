@@ -1,5 +1,6 @@
 <template lang="pug">
     .lv-input
+        label.hidden(:for="inputId") {{ label }}
         input.lv-input__input(
             :id="inputId",
             :type="type",
@@ -9,7 +10,7 @@
             :name="name",
             @input="emitValue"
             )
-        label.lv-input__error(:for="inputId") {{ errors && errors.first(name) }}
+        p.lv-input__error {{ errors && errors.first(name) }}
 </template>
 
 <script>
@@ -20,6 +21,7 @@ export default {
             type: String,
             default: 'text'
         },
+        label: String,
         placeholder: String,
         validations: String,
         inputAlias: String,
@@ -52,5 +54,6 @@ export default {
         &__error
             color: #ff6868,
             font-size: 0.75em,
-            padding: 0.5em 0.25em
+            padding: 0.5em 0.25em,
+            margin: 0
 </style>
