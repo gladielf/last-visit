@@ -77,17 +77,17 @@ export default {
 
 <style lang="sass">
 .login
+    align-items: center,
     display: flex,
-    flex-direction: column,
-    align-items: center
+    flex-direction: column
 
     &__icon
         height: 4em,
         width: 4em
 
     &__form
-        width: 13em,
-        margin-top: 2em
+        margin-top: 2em,
+        width: 13em
 
     &__form-button
         margin-top: 1.5em
@@ -95,7 +95,7 @@ export default {
     &__error
         color: #ff6868,
         font-size: 0.75em,
-        padding: 0,
-        margin: 0
+        margin: 0,
+        padding: 0
 
 </style>

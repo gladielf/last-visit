@@ -77,8 +77,9 @@ export default {
 <style lang="sass">
 .home
     &__title
+        color: #000,
         margin: 0
-        color: #000
+
     &__subtitle
         margin-top: 0.5em
 
