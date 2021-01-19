@@ -16,20 +16,44 @@ describe('Home - Snapshot', () => {
 });
 
 describe('Home - methods', () => {
-    it('logout', async () => {
-        const mockRouter = {
-            push: jest.fn()
+    let wrapper;
+
+    beforeEach(() => {
+        wrapper = shallowMount(Home, {
+            localVue
+        });
+    });
+
+    it('updateLastVisit', () => {
+        const stub = jest.fn();
+        wrapper.vm.dbRef = {
+            set: stub
         };
 
-        const wrapper = shallowMount(Home, {
-            localVue,
-            mocks: {
-                $router: mockRouter
-            }
-        });
+        wrapper.vm.updateLastVisit();
 
-        await wrapper.vm.logout();
+        expect(stub).toHaveBeenCalled();
+    });
 
-        expect(mockRouter.push).toHaveBeenCalledWith('Login');
+    it('calculateTimeSpend', () => {
+        const spy = jest.spyOn(global, 'String');
+        wrapper.vm.lastLogin = 1611085228420;
+
+        wrapper.vm.calculateTimeSpend();
+
+        expect(spy).toHaveBeenCalledTimes(4);
+    });
+
+    it('configInterval', () => {
+        const stub = jest.fn();
+        wrapper.vm.lastLogin = 1611085228420;
+        wrapper.vm.calculateTimeSpend = stub;
+
+        jest.useFakeTimers();
+
+        wrapper.vm.configInterval(1611085228420);
+
+        expect(wrapper.vm.lastLogin).toBe(1611085228420);
+        expect(setInterval).toHaveBeenCalled();
     });
 });
