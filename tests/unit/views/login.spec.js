@@ -3,12 +3,6 @@ import Login from '@/views/Login.vue';
 import LvButton from '@/components/lv-button.vue';
 import LvInput from '@/components/lv-input.vue';
 
-// jest.mock('firebase', () => {
-//     return mocksdk;
-//   });
-
-// mocksdk.database().flush();
-
 const localVue = createLocalVue();
 
 localVue.component('lv-button', LvButton);
