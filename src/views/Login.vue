@@ -48,18 +48,17 @@ export default {
             firebase.auth()
                 .signInWithEmailAndPassword(this.email, this.password)
                 .then(data => {
-                    const lastSignInTime = data.user.metadata.lastSignInTime;
-                    const lastSignIn = new Date(lastSignInTime).getTime();
+                    const lastSignIn = new Date(data.user.metadata.lastSignInTime).getTime();
 
                     const dbRef = firebase.database().ref(`Users/${data.user.uid}`);
 
                     dbRef.on('value', (snapshot) => {
                         if (!snapshot.exists() || !snapshot.val().lastSignIn) {
-                            dbRef.set({ lastSignIn, lastSignInTime });
+                            dbRef.set({ lastSignIn });
                         }
                     });
 
-                    this.$router.push('Home');
+                    this.$router.push('home');
                 })
                 .catch(err => {
                     console.log(err);

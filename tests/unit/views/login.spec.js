@@ -34,26 +34,6 @@ describe('Login - computed', () => {
 });
 
 describe('Login - methods', () => {
-    it.skip('login', async () => {
-        const mockRouter = {
-            push: jest.fn()
-        };
-
-        const wrapper = shallowMount(Login, {
-            localVue,
-            mocks: {
-                $router: mockRouter
-            },
-            global: {
-                firebase: {}
-            }
-        });
-
-        await wrapper.vm.login();
-
-        expect(mockRouter.push).toHaveBeenCalledWith('Home');
-    });
-
     it('setValue', () => {
         const wrapper = shallowMount(Login, {
             localVue

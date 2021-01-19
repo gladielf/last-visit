@@ -17,7 +17,7 @@ export default {
 
 <style lang="sass">
 .lv-counter
-    width: 5em,
+    width: 4.5em,
     display: flex,
     align-items: center,
     flex-direction: column

@@ -2,10 +2,44 @@
 
 exports[`Home - Snapshot Snapshot 1`] = `
 <div
-  class="home"
+  class="view home"
 >
+  <h2
+    class="home__title"
+  >
+    Welcome!
+  </h2>
+  <p
+    class="home__subtitle"
+  >
+    The last time you accessed was
+  </p>
+  <div
+    class="home__counters-group"
+  >
+    <lv-counter-stub
+      class="home__counter"
+      label="days"
+      value="00"
+    />
+    <lv-counter-stub
+      class="home__counter"
+      label="hours"
+      value="00"
+    />
+    <lv-counter-stub
+      class="home__counter"
+      label="minutes"
+      value="00"
+    />
+    <lv-counter-stub
+      class="home__counter"
+      label="seconds"
+      value="00"
+    />
+  </div>
   <lv-button-stub
-    class="lv-button--light"
+    class="lv-button--light home__button"
     text="LOGOUT"
     type="button"
   />
