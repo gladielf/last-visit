@@ -1,7 +1,7 @@
 <template lang="pug">
 .login.view
     img.login__icon(src="../assets/padlock.svg")
-    form.login__form(novalidate)
+    form.login__form(novalidate, v-on:submit.prevent)
         lv-input(
             placeholder="Email",
             type="email",
@@ -19,7 +19,7 @@
             id="login-pass",
             @lv-input-value="setValue($event, 'password')")
         p.login__error(v-if="loginError") {{ loginError }}
-        lv-button.lv-button--dark.login__form-button(text="Log In", max-width, @lv-button-clicked="login" :disableButton="disableButton")
+        lv-button.lv-button--dark.login__form-button(type="submit" text="Log In", max-width, @lv-button-clicked="login" :disableButton="disableButton")
 </template>
 
 <script>
