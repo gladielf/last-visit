@@ -28,6 +28,7 @@ exports[`Login - Snapshot Snapshot 1`] = `
       type="password"
       validations="required"
     />
+    <!---->
     <lv-button-stub
       class="lv-button--dark login__form-button"
       disablebutton="true"
