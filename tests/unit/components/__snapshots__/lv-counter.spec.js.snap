@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LvCounter - Snapshot Snapshot 1`] = `
+<div
+  class="lv-counter"
+>
+  <p
+    class="lv-counter__digit"
+  >
+    
+  </p>
+  <p
+    class="lv-counter__label"
+  >
+    
+  </p>
+</div>
+`;
