@@ -22,7 +22,9 @@
 </template>
 
 <script>
-import firebase from 'firebase';
+import firebase from 'firebase/app';
+import 'firebase/auth';
+import 'firebase/database';
 import LvInput from '@/components/lv-input.vue';
 
 export default {
