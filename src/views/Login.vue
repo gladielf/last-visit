@@ -1,7 +1,7 @@
 <template lang="pug">
 .login.view
     img.login__icon(src="../assets/padlock.svg")
-    form.login__form(novalidate, v-on:submit.prevent)
+    form.login__form(novalidate, @submit.prevent="")
         lv-input(
             placeholder="Email",
             type="email",

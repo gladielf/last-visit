@@ -34,7 +34,7 @@ exports[`Login - Snapshot Snapshot 1`] = `
       disablebutton="true"
       maxwidth="true"
       text="Log In"
-      type="button"
+      type="submit"
     />
   </form>
 </div>

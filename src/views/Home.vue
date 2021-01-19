@@ -58,7 +58,7 @@ export default {
             const timeSpend = now - this.lastLogin;
             const dateSpend = new Date(timeSpend);
             this.days = String(dateSpend.getDate() - 1).padStart(2, '0');
-            this.hours = String(dateSpend.getHours() - 1).padStart(2, '0');
+            this.hours = String(Math.max(dateSpend.getHours() - 1, 0)).padStart(2, '0');
             this.mins = String(dateSpend.getMinutes()).padStart(2, '0');
             this.secs = String(dateSpend.getSeconds()).padStart(2, '0');
         },
