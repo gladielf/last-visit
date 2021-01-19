@@ -4,14 +4,19 @@ exports[`LvInput - Snapshot Snapshot 1`] = `
 <div
   class="lv-input"
 >
+  <label
+    class="hidden"
+  >
+    
+  </label>
   <input
     class="lv-input__input"
     type="text"
   />
-  <label
+  <p
     class="lv-input__error"
   >
     
-  </label>
+  </p>
 </div>
 `;
