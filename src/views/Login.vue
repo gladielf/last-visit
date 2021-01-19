@@ -18,10 +18,11 @@
             label="Password"
             id="login-pass",
             @lv-input-value="setValue($event, 'password')")
-        lv-button.lv-button--dark.login__form-button(type="submit", text="Log In", max-width, @lv-button-clicked="login" :disableButton="disableButton")
+        lv-button.lv-button--dark.login__form-button(text="Log In", max-width, @lv-button-clicked="login" :disableButton="disableButton")
 </template>
 
 <script>
+import firebase from 'firebase';
 import LvInput from '@/components/lv-input.vue';
 
 export default {
@@ -32,7 +33,8 @@ export default {
     data () {
         return {
             email: '',
-            password: ''
+            password: '',
+            lastSignIn: 0
         };
     },
     computed: {
@@ -41,10 +43,27 @@ export default {
         }
     },
     methods: {
+        /* istanbul ignore next */
         login () {
-            console.log('Nos logamos');
-            // Hacer login
-            this.$router.push('Home');
+            firebase.auth()
+                .signInWithEmailAndPassword(this.email, this.password)
+                .then(data => {
+                    const lastSignInTime = data.user.metadata.lastSignInTime;
+                    const lastSignIn = new Date(lastSignInTime).getTime();
+
+                    const dbRef = firebase.database().ref(`Users/${data.user.uid}`);
+
+                    dbRef.on('value', (snapshot) => {
+                        if (!snapshot.exists() || !snapshot.val().lastSignIn) {
+                            dbRef.set({ lastSignIn, lastSignInTime });
+                        }
+                    });
+
+                    this.$router.push('Home');
+                })
+                .catch(err => {
+                    console.log(err);
+                });
         },
         setValue (payload, dataType) {
             this[dataType] = payload;
