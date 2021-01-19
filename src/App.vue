@@ -1,5 +1,6 @@
 <template lang="pug">
     #app
+        h1.hidden Last visit
         router-view
 </template>
 
