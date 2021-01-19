@@ -18,6 +18,7 @@
             label="Password"
             id="login-pass",
             @lv-input-value="setValue($event, 'password')")
+        p.login__error(v-if="loginError") {{ loginError }}
         lv-button.lv-button--dark.login__form-button(text="Log In", max-width, @lv-button-clicked="login" :disableButton="disableButton")
 </template>
 
@@ -36,7 +37,8 @@ export default {
         return {
             email: '',
             password: '',
-            lastSignIn: 0
+            lastSignIn: 0,
+            loginError: ''
         };
     },
     computed: {
@@ -63,7 +65,7 @@ export default {
                     this.$router.push('home');
                 })
                 .catch(err => {
-                    console.log(err);
+                    this.loginError = err.message;
                 });
         },
         setValue (payload, dataType) {
@@ -89,5 +91,11 @@ export default {
 
     &__form-button
         margin-top: 1.5em
+
+    &__error
+        color: #ff6868,
+        font-size: 0.75em,
+        padding: 0,
+        margin: 0
 
 </style>
