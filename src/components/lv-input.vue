@@ -54,6 +54,6 @@ export default {
         &__error
             color: #ff6868,
             font-size: 0.75em,
-            padding: 0.5em 0.25em,
-            margin: 0
+            margin: 0,
+            padding: 0.5em 0.25em
 </style>

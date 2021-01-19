@@ -1,7 +1,7 @@
 <template lang="pug">
 .login.view
     img.login__icon(src="../assets/padlock.svg")
-    form.login__form(novalidate)
+    form.login__form(novalidate, @submit.prevent="")
         lv-input(
             placeholder="Email",
             type="email",
@@ -18,7 +18,8 @@
             label="Password"
             id="login-pass",
             @lv-input-value="setValue($event, 'password')")
-        lv-button.lv-button--dark.login__form-button(text="Log In", max-width, @lv-button-clicked="login" :disableButton="disableButton")
+        p.login__error(v-if="loginError") {{ loginError }}
+        lv-button.lv-button--dark.login__form-button(type="submit" text="Log In", max-width, @lv-button-clicked="login" :disableButton="disableButton")
 </template>
 
 <script>
@@ -36,7 +37,8 @@ export default {
         return {
             email: '',
             password: '',
-            lastSignIn: 0
+            lastSignIn: 0,
+            loginError: ''
         };
     },
     computed: {
@@ -63,7 +65,7 @@ export default {
                     this.$router.push('home');
                 })
                 .catch(err => {
-                    console.log(err);
+                    this.loginError = err.message;
                 });
         },
         setValue (payload, dataType) {
@@ -75,19 +77,25 @@ export default {
 
 <style lang="sass">
 .login
+    align-items: center,
     display: flex,
-    flex-direction: column,
-    align-items: center
+    flex-direction: column
 
     &__icon
         height: 4em,
         width: 4em
 
     &__form
-        width: 13em,
-        margin-top: 2em
+        margin-top: 2em,
+        width: 13em
 
     &__form-button
         margin-top: 1.5em
+
+    &__error
+        color: #ff6868,
+        font-size: 0.75em,
+        margin: 0,
+        padding: 0
 
 </style>

@@ -28,13 +28,13 @@ export default {
 
 <style lang="sass">
     .lv-button
-        font-family: 'Roboto', sans-serif,
+        border-radius: 3px,
         border-width: 0,
         color: #fff,
-        height: 2.5em,
+        font-family: 'Roboto', sans-serif,
         font-size: 0.75em,
-        min-width: 8em,
-        border-radius: 3px
+        height: 2.5em,
+        min-width: 8em
 
         &--max-width
             width: 100%

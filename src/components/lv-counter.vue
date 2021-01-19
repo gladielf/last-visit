@@ -17,10 +17,10 @@ export default {
 
 <style lang="sass">
 .lv-counter
-    width: 4.5em,
-    display: flex,
     align-items: center,
-    flex-direction: column
+    display: flex,
+    flex-direction: column,
+    width: 4.5em
 
     &__digit,
     &__label
